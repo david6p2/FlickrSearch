@@ -16,32 +16,55 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4n1-Cr-7Js">
                             <size key="itemSize" width="200" height="200"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="headerReferenceSize" width="50" height="90"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FlickrCell" id="BIc-W9-Hxd" customClass="FlickrPhotoCell" customModule="FlickrSearch" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                <rect key="frame" x="0.0" y="90" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hnI-SR-M5K"/>
+                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Xmf-Iu-hEb"/>
                                     </subviews>
                                 </view>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="hnI-SR-M5K" secondAttribute="bottom" id="9TG-PZ-wZI"/>
                                     <constraint firstItem="hnI-SR-M5K" firstAttribute="leading" secondItem="BIc-W9-Hxd" secondAttribute="leading" id="XA4-cS-V2B"/>
+                                    <constraint firstItem="Xmf-Iu-hEb" firstAttribute="centerY" secondItem="BIc-W9-Hxd" secondAttribute="centerY" id="dhL-nj-WKh"/>
                                     <constraint firstAttribute="trailing" secondItem="hnI-SR-M5K" secondAttribute="trailing" id="pi9-Lh-W8q"/>
+                                    <constraint firstItem="Xmf-Iu-hEb" firstAttribute="centerX" secondItem="BIc-W9-Hxd" secondAttribute="centerX" id="qLR-Hl-8x0"/>
                                     <constraint firstItem="hnI-SR-M5K" firstAttribute="top" secondItem="BIc-W9-Hxd" secondAttribute="top" id="s0x-dV-Lvt"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="activityIndicator" destination="Xmf-Iu-hEb" id="EDc-Jc-c8f"/>
                                     <outlet property="imageView" destination="hnI-SR-M5K" id="yxp-MU-mEZ"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FlickrPhotoHeaderView" id="0Sq-tC-78W" customClass="FlickrPhotoHeaderView" customModule="FlickrSearch" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="768" height="90"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODh-oG-ms6">
+                                    <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="ODh-oG-ms6" firstAttribute="centerY" secondItem="0Sq-tC-78W" secondAttribute="centerY" id="H6O-gy-shj"/>
+                                <constraint firstItem="ODh-oG-ms6" firstAttribute="centerX" secondItem="0Sq-tC-78W" secondAttribute="centerX" id="Lfs-kK-psX"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="label" destination="ODh-oG-ms6" id="P3T-d2-Tvh"/>
+                            </connections>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="hkX-gU-woj" id="r3t-Wu-WOw"/>
                             <outlet property="delegate" destination="hkX-gU-woj" id="uee-eD-quz"/>
