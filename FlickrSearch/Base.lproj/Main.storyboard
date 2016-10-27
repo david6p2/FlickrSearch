@@ -70,6 +70,7 @@
                             <outlet property="delegate" destination="hkX-gU-woj" id="uee-eD-quz"/>
                         </connections>
                     </collectionView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="VNa-GL-FiH">
                         <nil key="title"/>
                         <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" id="ajS-gO-zT3">
@@ -82,7 +83,13 @@
                                 <outlet property="delegate" destination="hkX-gU-woj" id="biF-MH-5jp"/>
                             </connections>
                         </textField>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="r4B-Jj-iOf">
+                            <connections>
+                                <action selector="share:" destination="hkX-gU-woj" id="QXc-bq-K3l"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KHR-Uf-jhT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
