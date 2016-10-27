@@ -183,7 +183,7 @@ extension FlickrPhotosViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier,
                                                       for: indexPath) as! FlickrPhotoCell
         
-        var flickrPhoto = photoForIndexPath(indexPath)
+        let flickrPhoto = photoForIndexPath(indexPath)
         
         cell.activityIndicator.stopAnimating()
         
@@ -213,6 +213,19 @@ extension FlickrPhotosViewController {
         }
         
         return cell
+    }
+    
+    
+    
+    override func collectionView(_ collectionView: UICollectionView,
+                                 moveItemAt sourceIndexPath: IndexPath,
+                                 to destinationIndexPath: IndexPath) {
+        
+        var sourceResults = searches[(sourceIndexPath as NSIndexPath).section].searchResults
+        let flickrPhoto = sourceResults.remove(at: (sourceIndexPath as NSIndexPath).row)
+        
+        var destinationResults = searches[(destinationIndexPath as NSIndexPath).section].searchResults
+        destinationResults.insert(flickrPhoto, at: (destinationIndexPath as NSIndexPath).row)
     }
 }
 
